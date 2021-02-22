@@ -8,33 +8,15 @@ const HomePage = () => {
     const dispatch = useDispatch()
     useEffect(() =>{
         dispatch(getUsers())
-    })
+    }, [])
     const userList = useSelector(state => state.users)
-    //const userList = useEffect(() => {
-    //    dispatch(getUsers())
-    //})
+
+    console.log("2.   Get user-list from state: " + !userList)
+    console.log("2.1. Get user-list from state: " + userList)
 
     const columns = [
-        {field: 'id', headerName: 'ID', width: 70} /*,
-        {field: 'email', headerName: 'Email', width: 70}
-
-        {field: 'firstName', headerName: 'First name', width: 130},
-        {field: 'lastName', headerName: 'Last name', width: 130},
-        {
-            field: 'age',
-            headerName: 'Age',
-            type: 'number',
-            width: 90,
-        },
-        {
-            field: 'fullName',
-            headerName: 'Full name',
-            description: 'This column has a value getter and is not sortable.',
-            sortable: false,
-            width: 160,
-            valueGetter: (params) =>
-                `${params.getValue('firstName') || ''} ${params.getValue('lastName') || ''}`,
-        },*/
+        {field: 'id', headerName: 'ID', width: 170},
+        {field: 'email', headerName: 'Email', width: 270}
     ];
 
     const rows = [
@@ -50,20 +32,12 @@ const HomePage = () => {
     ];
 
     var rows1 ; // userList1 === undefined ? rows : Array.from(userList1);
-
-    if (userList === undefined) {
+    if (userList == undefined) {
         rows1 = rows
     } else {
-        rows1 = Array.from(userList);
+        rows1 = Array.from(userList['users']);
         console.log(userList)
     }
-
-    /*
-    const rows1 = [];
-    for (let i = 1; i< userList.length + 1; i++){
-        rows1[i] = userList[i];
-    }*/
-    // Object.assign(rows, [] );
 
     return (
         <div style={{height: 400, width: '100%'}}>

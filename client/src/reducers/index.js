@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 const rootReducer = combineReducers({
     user: userReducer,
-    files: userListReducer,
+    users: userListReducer,
 })
 
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))

@@ -19,11 +19,11 @@ function App() {
         dispatch(auth())
     }, [])
 
-    useEffect(() => {
-        if (isAuth) {
-            dispatch(getUsers())
-        }
-    }, [isAuth])
+    // useEffect(() => {
+    //     if (isAuth) {
+    //         dispatch(getUsers())
+    //     }
+    // }, [isAuth])
 
     return (
         <BrowserRouter>

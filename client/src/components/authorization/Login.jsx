@@ -4,11 +4,17 @@ import Input from "../../utils/input/Input";
 import "bootstrap/dist/css/bootstrap.css";
 import {useDispatch} from "react-redux";
 import {login} from "../../actions/user";
+import {useEffect} from "react/cjs/react.production.min";
+import {getUsers} from "../../actions/userList";
 
 const Login = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const dispatch = useDispatch()
+    useEffect(() => {
+       dispatch(getUsers())
+    }, [])
+
     return (
         <div className='authorization'>
             <div className="authorization__header">Login In</div>

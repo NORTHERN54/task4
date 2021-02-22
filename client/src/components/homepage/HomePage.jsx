@@ -5,10 +5,10 @@ import {DataGrid} from '@material-ui/data-grid';
 import {useEffect} from "react";
 
 const HomePage = () => {
-    const dispatch = useDispatch()
-    useEffect(() => {
-        dispatch(getUsers())
-    }, [])
+    // const dispatch = useDispatch()
+    // useEffect(() => {
+    //     dispatch(getUsers())
+    // }, [])
 
     const userList = useSelector(state => state.users)
     console.log("2. Get user-list from state: " + userList)

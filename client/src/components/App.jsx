@@ -20,8 +20,10 @@ function App() {
     }, [])
 
     useEffect(() => {
-        dispatch(getUsers())
-    }, [])
+        if (isAuth) {
+            dispatch(getUsers())
+        }
+    }, [isAuth])
 
     return (
         <BrowserRouter>

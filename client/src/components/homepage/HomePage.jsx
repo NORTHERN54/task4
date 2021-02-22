@@ -6,13 +6,12 @@ import {useEffect} from "react";
 
 const HomePage = () => {
     const dispatch = useDispatch()
-    useEffect(() =>{
+    useEffect(() => {
         dispatch(getUsers())
     }, [])
-    const userList = useSelector(state => state.users)
 
-    console.log("2.   Get user-list from state: " + !userList)
-    console.log("2.1. Get user-list from state: " + userList)
+    const userList = useSelector(state => state.users)
+    console.log("2. Get user-list from state: " + userList)
 
     const columns = [
         {field: 'id', headerName: 'ID', width: 170},
@@ -31,13 +30,8 @@ const HomePage = () => {
         {id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65},
     ];
 
-    var rows1 ; // userList1 === undefined ? rows : Array.from(userList1);
-    if (userList == undefined) {
-        rows1 = rows
-    } else {
-        rows1 = Array.from(userList['users']);
-        console.log(userList)
-    }
+    const rows1 = (userList === undefined ? rows : Array.from(userList['users']));
+    console.log(rows1)
 
     return (
         <div style={{height: 400, width: '100%'}}>
